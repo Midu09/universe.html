@@ -1,0 +1,175 @@
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes rotate360 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes moveBackwards {
+    from {
+        /* right: 0; */
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-1500px);
+    }
+}
+@keyframes moveForward {
+    from {
+        /* right: 0; */
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(1500px);
+    }
+}
+@keyframes scale2{
+    100% {
+        transform: scaleX(2) scaleY(2);
+   }
+}
+@keyframes moveDown {
+     from{
+
+        /* transform: skewY(0deg); */
+        transform: translateY(90%);
+    } 
+    to {
+        /* transform: scale(2); */
+        transform: translateY(50%);
+        /* transform: skewY(65deg); */
+    }
+}
+html {
+    margin: 0 auto;
+    height: 100%;
+}
+body{
+  background-image: url(https://hermenegildacode.github.io/theUniverse/img/universe.jpg); 
+  background-size: cover;background-repeat: no-repeat;
+}
+.star {
+    /* transform: skewX(20deg); */
+    width: 100%;
+    /* max-width: 50%; */
+    transition: all 3s;
+    /* transform: skewY(18deg); */
+}
+.star .star1 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+    animation: 9s moveBackwards infinite linear;
+    
+    /* transform: translateX(500px, 500px); */
+}
+
+.star .star2 {
+    position: absolute;
+    left: 0;
+    top: 50;
+    width: 300px;
+    animation: 9s moveForward infinite linear;
+    transition: all 3s;
+    
+}
+.star2:hover, .star1:hover{
+    animation: moveDown 2s, scale2 2s;
+}
+.texto h1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation: 9s moveBackwards infinite linear;
+    z-index: 1;
+    color: white;
+    font-size: 3em;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+.texto h1:hover{
+    /* animation: 3s crazy linear; */
+    /* transform: scale(2); */
+    animation: moveDown 2s, scale2 2s;
+
+}
+.moon {
+    -webkit-animation: 15s rotate infinite linear reverse;
+    animation: 15s rotate infinite linear reverse;
+    /* -webkit-transform-origin: 20% 20%; */
+    /* transform-origin: 20% 20%; */
+    transform-origin: 150% center;
+    position: fixed;
+    left: 250px;
+    top: 350px;
+}
+.moon img {
+    max-width: 200px;
+    width: 50%;
+    /* margin-top: 80%; */
+    z-index: 1;
+    transition: all 2s;
+    cursor: pointer;
+}
+.moon img:hover {
+    animation: moveDown 2s, scale2 2s;
+}
+/* .earth {
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+} */
+.earth img {
+    animation: 25s rotate360 infinite linear;
+    /* margin-left: 30%; */
+    width: 20%;
+    min-width: 120px;
+    transition: all 2s;
+}
+.earth img:hover {
+    cursor: pointer;
+    animation: moveDown 2s, scale2 2s;
+    /* transform: scale(2); */
+    /* transform: translate(90px, 90px); */
+}
+.earth {
+    /* position: relative; */
+    /* left: 16px; */
+    /* top: -50px; */
+    animation: 3s crazy linear;
+    
+    position: fixed;
+    left: 450px;
+    top: 300px;
+}
+
+@media (max-width: 800px) {
+    .earth {
+        /* position: relative; */
+        /* left: 16px; */
+        /* top: -50px; */
+        position: fixed;
+        left: 40%;
+        top: 300px;
+    }
+    .moon {
+        transform-origin: 100% center;
+        position: fixed;
+        left: 10%;
+        top: 300px;
+    }
+}
